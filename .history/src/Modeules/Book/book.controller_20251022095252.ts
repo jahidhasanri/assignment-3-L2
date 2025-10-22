@@ -48,8 +48,8 @@ const GetAllbook = async(req:Request,res:Response)=>{
 
 const GetBookById = async(req:Request,res:Response)=>{
    try {
-     const bookId = req.params.bookId;
-    const data = await Book.findById(bookId);
+     const BookId = req.params.BookId;
+    const data = await Book.findById(BookId);
     res.send({
             success:true,
             message:"Books retrieved successfully",

@@ -3,6 +3,5 @@ import { BookController } from "./book.controller";
 
 const BookRoute = Router();
 BookRoute.post('/',BookController.CreateBook);
-BookRoute.get('/',BookController.GetAllbook);
-BookRoute.get('/:bookId',BookController.GetBookById);
+BookRoute.post('/',BookController.GetAllbook);
 export default BookRoute;

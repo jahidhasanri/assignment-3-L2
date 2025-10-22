@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import Book from "./book.model";
-import { Query } from "mongoose";
 
 const CreateBook= async(req:Request,res:Response)=>{
     try {
@@ -22,35 +21,8 @@ const CreateBook= async(req:Request,res:Response)=>{
 
 const GetAllbook = async(req:Request,res:Response)=>{
     try {
-        const {filter,sortBy = "createdAt",sort = "desc",limit=10}=req.query;
-        const query:any ={};
-        if(filter){
-            query.genre=filter;
-        }
-        const data = await Book.find(query)
-        .sort({[sortBy as string]: sort === "asc"?1:-1})
-        .limit(Number(limit));
+        const data = await Book.find();
         res.send({
-            success:true,
-            message:"Books retrieved successfully",
-            count:data.length,
-            data
-        })
-        
-    } catch (error) {
-        res.send({
-            message:"Books retrieved failed",
-            success:false,
-            error
-        })
-    }
-}
-
-const GetBookById = async(req:Request,res:Response)=>{
-   try {
-     const bookId = req.params.bookId;
-    const data = await Book.findById(bookId);
-    res.send({
             success:true,
             message:"Books retrieved successfully",
             data
@@ -64,9 +36,7 @@ const GetBookById = async(req:Request,res:Response)=>{
         })
     }
 }
-
-
 
 export const BookController = {
-    CreateBook,GetAllbook,GetBookById
+    CreateBook,
 }
