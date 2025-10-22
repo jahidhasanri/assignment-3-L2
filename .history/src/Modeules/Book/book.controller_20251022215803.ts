@@ -91,7 +91,7 @@ const DeleteBook = async (req:Request,res:Response)=>{
     res.send({
         success:true,
         message:"Book deleted successfully",
-        data:null
+        data
     })
     } catch (error) {
         res.send({

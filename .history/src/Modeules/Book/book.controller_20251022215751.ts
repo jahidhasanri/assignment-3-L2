@@ -91,7 +91,7 @@ const DeleteBook = async (req:Request,res:Response)=>{
     res.send({
         success:true,
         message:"Book deleted successfully",
-        data:null
+        data
     })
     } catch (error) {
         res.send({
@@ -103,5 +103,5 @@ const DeleteBook = async (req:Request,res:Response)=>{
 }
 
 export const BookController = {
-    CreateBook,GetAllbook,GetBookById,UpdateBook,DeleteBook
+    CreateBook,GetAllbook,GetBookById,UpdateBook
 }

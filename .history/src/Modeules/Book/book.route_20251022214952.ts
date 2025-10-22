@@ -6,5 +6,4 @@ BookRoute.post('/',BookController.CreateBook);
 BookRoute.get('/',BookController.GetAllbook);
 BookRoute.get('/:bookId',BookController.GetBookById);
 BookRoute.put('/:bookId',BookController.UpdateBook);
-BookRoute.delete('/:bookId',BookController.DeleteBook);
 export default BookRoute;

@@ -65,43 +65,8 @@ const GetBookById = async(req:Request,res:Response)=>{
     }
 }
 
-const UpdateBook = async (req:Request,res:Response)=>{
-    try {
-        const bookId= req.params.bookId;
-    const data = await Book.findByIdAndUpdate(bookId,req.body,{new:true,runValidators:true})
-    res.send({
-        success:true,
-        message:"Book updated successfully",
-        data
-    })
-        
-    } catch (error) {
-        res.send({
-            success:false,
-            message:'Book can not updated',
-            error
-        })
-    }
-}
 
-const DeleteBook = async (req:Request,res:Response)=>{
-    try {
-        const bookId= req.params.bookId;
-    const data = await Book.findByIdAndDelete(bookId);
-    res.send({
-        success:true,
-        message:"Book deleted successfully",
-        data:null
-    })
-    } catch (error) {
-        res.send({
-            success:false,
-        message:"Book can't deleted! something is wrong",
-        error
-        })
-    }
-}
 
 export const BookController = {
-    CreateBook,GetAllbook,GetBookById,UpdateBook,DeleteBook
+    CreateBook,GetAllbook,GetBookById
 }
